@@ -1,0 +1,14 @@
+<table xmlns:th="http://thymeleaf.org" class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Author</th>
+        <th scope="col">Post</th>
+    </tr>
+    </thead>
+    <tr th:each="post: ${posts}">
+        <td th:text="${post.id}" />
+        <td th:text="${post.author}" />
+        <td th:text="${post.post}" />
+    </tr>
+</table>
