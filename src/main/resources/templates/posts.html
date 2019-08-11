@@ -1,14 +1,67 @@
-<table xmlns:th="http://thymeleaf.org" class="table">
-    <thead>
-    <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Author</th>
-        <th scope="col">Post</th>
-    </tr>
-    </thead>
-    <tr th:each="post: ${posts}">
-        <td th:text="${post.id}" />
-        <td th:text="${post.author}" />
-        <td th:text="${post.post}" />
-    </tr>
-</table>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main.html}">
+<div layout:fragment="content" class="container">
+    <div class="jumbotron">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Author</th>
+                <th scope="col">Post</th>
+            </tr>
+            </thead>
+            <tr th:each="post: ${posts}">
+                <td th:text="${post.id}" />
+                <td th:text="${post.author}" />
+                <td th:text="${post.post}" />
+            </tr>
+        </table>
+        <form action="#" th:action="@{/post}" method="post">
+            <div class="form-group">
+                <label for="author">Author:</label>
+                <input class="form-control" name="author" id="author">
+            </div>
+            <div class="form-group">
+                <label for="post">Post:</label>
+                <input class="form-control" name="post" id="post">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+<!--<html lang="en" xmlns:th="http://thymeleaf.org">-->
+<!--    <head>-->
+<!--        <title th:text="${ @environment.getProperty('spring.profiles.active') == 'prod' ? 'My Awesome Blog!' : ( @environment.getProperty('spring.profiles.active') != null ? '[' + @environment.getProperty('spring.profiles.active') + '] My Awesome Blog!' : '[default] My Awesome Blog!' ) }"></title>-->
+<!--    </head>-->
+<!--    <body>-->
+<!--        <table class="table">-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--                <th scope="col">ID</th>-->
+<!--                <th scope="col">Author</th>-->
+<!--                <th scope="col">Post</th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tr th:each="post: ${posts}">-->
+<!--                <td th:text="${post.id}" />-->
+<!--                <td th:text="${post.author}" />-->
+<!--                <td th:text="${post.post}" />-->
+<!--            </tr>-->
+<!--        </table>-->
+<!--        </br>-->
+<!--        <form action="#" th:action="@{/post}" method="post">-->
+<!--            <div class="form-group">-->
+<!--                <label for="author">Author:</label>-->
+<!--                <input class="form-control" name="author" id="author">-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <label for="post">Post:</label>-->
+<!--                <input class="form-control" name="post" id="post">-->
+<!--            </div>-->
+<!--            <button type="submit" class="btn btn-default">Submit</button>-->
+<!--        </form>-->
+<!--    </body>-->
+<!--</html>-->

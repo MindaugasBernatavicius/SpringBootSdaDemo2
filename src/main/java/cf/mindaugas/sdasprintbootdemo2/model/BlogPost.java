@@ -2,13 +2,22 @@ package cf.mindaugas.sdasprintbootdemo2.model;
 
 import lombok.*;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 @Getter @Setter @ToString
 @NoArgsConstructor @RequiredArgsConstructor
 public class BlogPost {
-	private @NonNull int id;
+	@Id
+	@GeneratedValue(strategy= GenerationType.AUTO)
+	private int id;
 	private @NonNull String author;
 	private @NonNull String post;
 }
+
 
 // import lombok.Getter;
 // import lombok.NoArgsConstructor;

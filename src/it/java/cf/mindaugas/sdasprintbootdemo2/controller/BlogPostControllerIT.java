@@ -73,7 +73,7 @@ public class BlogPostControllerIT {
 				"{\"id\":1,\"author\":\"Mindaugas\",\"post\":\"Post 1\"}," +
 				"{\"id\":2,\"author\":\"Kazys\",\"post\":\"Post 2\"}," +
 				"{\"id\":3,\"author\":\"Pranas\",\"post\":\"Post3\"}" +
-				"]";
+			"]";
 		assertThat(new Gson().toJson(response.getBody()), equalTo(expected));
 	}
 
